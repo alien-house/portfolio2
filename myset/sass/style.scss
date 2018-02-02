@@ -1,0 +1,14 @@
+@import '../node_modules/reset-css/reset.scss';
+@import '../node_modules/animate.css/animate.min';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Rokkitt:400,500,600|Lato:200,300,400,700');
+
+@import "font-awesome/font-awesome.scss";
+
+@import "./partials/variables";
+@import "./partials/buttons";
+@import "./partials/menu";
+@import "./partials/misc";
+@import "./global";
+@import "./pages/home";
+@import "./pages/about";
+@import "./pages/work";
