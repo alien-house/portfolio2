@@ -1,0 +1,16 @@
+
+.box {
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		letter-spacing: 1px;
+	}
+	&__group {
+		width: 100%;
+		margin-bottom: 40px;
+    @include min-screen($breakpoint-tablet) {
+			width: calc(50% - 30px);
+    }
+  }
+}

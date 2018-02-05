@@ -17,6 +17,8 @@ $breakpoint-md      : 970px;
 $breakpoint-tablet  : 768px;
 $breakpoint-mobile  : 640px;
 
+
+
 // Alpha
 $alpha              : 0.8;
 $bd-radius          : 4px;
@@ -36,56 +38,6 @@ $color-green : #0ab82f;
 .tright{
 	text-align: right;
 }
-
-// 
-// $pre-white          : #f4f4f4;
-// $pre-white2         : #f2f2f2;
-// $color-base         : #333333;
-// $color-link         : #3eaadd;
-// $color-hover        : #63c9f9;
-// $color-grey         : #8da5b0;
-// $color-dgrey        : #666666;
-// $color-green        : #75c151;
-// $color-dgreen       : #4cc75b;
-// $color-blue         : #3eaadd;
-// $color-dblue        : #1fa4e2;
-// $color-dblue2       : #1d9bd6;
-// $color-bder-grey    : #617e8c;
-// $color-bder-grey2   : #698896;
-// $color-bder-green   : #52a42c;
-// $color-bder-blue    : #008cce;
-// $color-bder-blue2    : #a1d3ea;
-// $color-red          : #ed6366;
-// $gnav-red           : #585858;
-// $color-light-grey   : #cccccc;
-// $color-light-grey2  : #777777;
-// $color-light-grey3  : #aaaaaa;
-// $color-light-grey4  : #999999;
-// $color-light-grey5  : #eeeeee;
-// $color-light-grey6  : #e6e6e6;
-// $color-light-grey7  : #d7d7d7;
-// $color-black-grey   : #444444;
-// $color-hr           : #a1dcf6;
-
-
-
-// // Colors
-// $brand-primary:         #b74e5d;
-// $link:                  #b74e5d;
-// $red:                   #df262c;
-// $gray:                  #717171;
-// $border-pink:           #d9676b;
-// $border:                #ececec;
-// $white:                 #f6f6f6;
-// $black:                 #1C2227;
-// $type:                  #4a4a4a;
-// $footer-type:           #bfbfbf;
-// $facebook:              #4460a0;
-// $twitter:               #00aaec;
-// $google:                #f93f2d;
-// $rss:                   #ff9a00;
-// $pocket:                #ee4056;
-// $hatena:                #5279e7;
 
 // Mixin Setting
 @mixin bder-radius($radi: $bd-radius){
