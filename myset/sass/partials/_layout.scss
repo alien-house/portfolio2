@@ -12,5 +12,8 @@
     @include min-screen($breakpoint-tablet) {
 			width: calc(50% - 30px);
     }
+    &:nth-child(2){
+      background: #333;
+    }
   }
 }

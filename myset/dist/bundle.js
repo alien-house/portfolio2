@@ -9022,8 +9022,11 @@ module.exports = function (regExp, replace) {
 
 /***/ }),
 /* 328 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_webGL__ = __webpack_require__(329);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9031,7 +9034,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // import 'babel-polyfill';
 // import 'custom-event-polyfill'
 
-// import Header from './modules/header';
+
 // import Home from './modules/home';
 // import Model from './modules/model';
 // import Cover from './modules/cover';
@@ -9041,19 +9044,15 @@ var App = function () {
 	function App() {
 		_classCallCheck(this, App);
 
-		// just some console fun.
 		console.log('%cBuilt by', 'font: 200 16px Calibri;color:#CCC');
-		// console.log('%cSignals', 'font: 200 28px Calibri;color:#93cb3c');
-		// console.log('%chttp://www.signals.ca', 'font: 200 16px Calibri;color:#CCC');
 
-		// Doc els
 		// this.body = document.querySelector('body');
 		// this.coverSlider = document.querySelector('.cover__slider');
 
 		// this.header = new Header();
 
 		// this.routes();
-		// this.init();
+		this.init();
 	}
 
 	// load Classes based on body CSS class
@@ -9079,6 +9078,8 @@ var App = function () {
 			if (this.coverSlider) {
 				new Cover(this.coverSlider);
 			}
+
+			new __WEBPACK_IMPORTED_MODULE_0__modules_webGL__["a" /* default */]();
 		}
 	}]);
 
@@ -9086,6 +9087,75 @@ var App = function () {
 }();
 
 window.App = new App();
+
+/***/ }),
+/* 329 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+throw new Error("Cannot find module \"three\"");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var webGL = function () {
+    //sample from
+    //コピペで完成！Three.js入門 1
+    //https://qiita.com/may88seiji/items/675577509fbd124652e5
+
+    function webGL() {
+        _classCallCheck(this, webGL);
+
+        this.renderer();
+    }
+
+    _createClass(webGL, [{
+        key: "renderer",
+        value: function renderer() {
+
+            // 1-1 scene オブジェクトを作成する
+            var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["Scene"]();
+
+            // 1−2 camera オブジェクト作成する
+            var camera = new __WEBPACK_IMPORTED_MODULE_0_three__["PerspectiveCamera"](45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+            // 1−3 renderer オブジェクトを作成する
+            var renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["WebGLRenderer"]();
+            renderer.setClearColor(new __WEBPACK_IMPORTED_MODULE_0_three__["Color"](0xEEEEEE));
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // 2-1 平面を作成する
+            var planeGeometry = new __WEBPACK_IMPORTED_MODULE_0_three__["PlaneGeometry"](60, 20);
+            var planeMaterial = new __WEBPACK_IMPORTED_MODULE_0_three__["MeshLambertMaterial"]({ color: 0xffffff });
+            var plane = new __WEBPACK_IMPORTED_MODULE_0_three__["Mesh"](planeGeometry, planeMaterial);
+
+            // 2-2 平面を傾け、位置を決める
+            plane.rotation.x = -0.5 * Math.PI;
+            plane.position.x = 15;
+            plane.position.y = 0;
+            plane.position.z = 0;
+
+            // 2-3 平面を追加する
+            scene.add(plane);
+
+            // 3-1 カメラの位置 見え方を設定する
+            camera.position.x = -30;
+            camera.position.y = 40;
+            // camera.position.z = 30;
+            camera.lookAt(scene.position);
+            // 3-2 jsのappendChild関数でdiv要素に追加
+            document.getElementById("WebGL-output").appendChild(renderer.domElement);
+            // 3-3 rendererにsecne cameraの描画を指示する
+            renderer.render(scene, camera);
+        }
+    }]);
+
+    return webGL;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (webGL);
 
 /***/ })
 /******/ ]);

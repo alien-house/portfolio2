@@ -5041,6 +5041,8 @@ table {
   @media screen and (min-width: 768px) {
     .box__group {
       width: calc(50% - 30px); } }
+  .box__group:nth-child(2) {
+    background: #333; }
 
 .base {
   padding: 10px; }
