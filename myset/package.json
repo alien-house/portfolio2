@@ -26,7 +26,8 @@
     "scrollmagic": "^2.0.5",
     "slick-carousel": "^1.8.1",
     "snapsvg": "^0.5.1",
-    "textillate": "^0.4.1"
+    "textillate": "^0.4.1",
+    "three": "^0.89.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
