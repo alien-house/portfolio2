@@ -9102,6 +9102,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var scene = void 0,
     camera = void 0,
     renderer = void 0;
+var step = 0;
 
 var webGL = function () {
     //sample from
@@ -9112,7 +9113,7 @@ var webGL = function () {
         _classCallCheck(this, webGL);
 
         // renderer = null;
-        this.cube = null;
+        // this.cube = null;
         this.sphere = null;
         this.init();
     }
@@ -9165,51 +9166,51 @@ var webGL = function () {
             // 5-1 cubeの作成
             var cubeGeometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](4, 4, 4);
             var cubeMaterial = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* MeshLambertMaterial */]({ color: 0xff0000 });
-            this.cube = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](cubeGeometry, cubeMaterial);
+            var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](cubeGeometry, cubeMaterial);
             // 5-2 cubeの位置
-            this.cube.position.x = -4;
-            this.cube.position.y = 3;
-            this.cube.position.z = 0;
-            // 5-3 this.cubeの追加
-            scene.add(this.cube);
+            cube.position.x = -4;
+            cube.position.y = 3;
+            cube.position.z = 0;
+            // 5-3 cubeの追加
+            scene.add(cube);
 
             // 5−4 sphereの作成
             var sphereGeometry = new __WEBPACK_IMPORTED_MODULE_0_three__["h" /* SphereGeometry */](4, 20, 20);
             var sphereMaterial = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* MeshLambertMaterial */]({ color: 0x7777ff });
-            this.sphere = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](sphereGeometry, sphereMaterial);
+            var sphere = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](sphereGeometry, sphereMaterial);
             // 5-5 sphereの位置
-            this.sphere.position.x = 20;
-            this.sphere.position.y = 0;
-            this.sphere.position.z = 2;
+            sphere.position.x = 20;
+            sphere.position.y = 0;
+            sphere.position.z = 2;
             // 5-6 this.sphereの追加
-            scene.add(this.sphere);
+            scene.add(sphere);
             renderer.shadowMap.enabled = true;
             // 6-2 影の利用
             plane.receiveShadow = true;
             // 6-3 影の利用
-            this.cube.castShadow = true;
+            cube.castShadow = true;
             // 6−4 影の利用
-            this.sphere.castShadow = true;
+            sphere.castShadow = true;
             // 6−5 spotLightを影に対応させる
             spotLight.castShadow = true;
 
-            this.render();
+            this.render(cube, sphere);
         }
     }, {
         key: "render",
-        value: function render() {
-            console.log(renderer);
+        value: function render(cube, sphere) {
+            console.log(cube);
             document.getElementById("WebGL-output").appendChild(renderer.domElement);
-            var step = 0;
+
             // 8-1 this.cubeのアニメーション
-            this.cube.rotation.x += 0.02;
-            this.cube.rotation.y += 0.02;
-            this.cube.rotation.z += 0.02;
+            cube.rotation.x += 0.02;
+            cube.rotation.y += 0.02;
+            cube.rotation.z += 0.02;
 
             // 8-2 this.sphereのアニメーション
             step += 0.04;
-            this.sphere.position.x = 20 + 10 * Math.cos(step);
-            this.sphere.position.y = 2 + 10 * Math.abs(Math.sin(step));
+            sphere.position.x = 20 + 10 * Math.cos(step);
+            sphere.position.y = 2 + 10 * Math.abs(Math.sin(step));
 
             requestAnimationFrame(this.render);
             renderer.render(scene, camera);
