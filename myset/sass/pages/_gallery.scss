@@ -1,0 +1,179 @@
+
+/* Collection
+   ========================================================================== */
+html.modal-active{
+    overflow: hidden;
+}
+.collection-gallery{
+    width: 1120px;
+    margin: 0 auto;
+    padding: 0 0 5vh;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap; 
+    @include max-screen($width-max) {
+        width: 100%;
+    }
+    @include max-screen($tab) {
+        width: 81vw;
+        padding: 0 0 3vh;
+    }
+}
+.collection-gallery__item{
+    position: relative;
+    width:  180px;
+    margin: 0 50px 80px;
+    @include max-screen($width-max) {
+        width:  14vw;
+        margin: 0 2.7vw 6vh;
+    }
+    @include max-screen($desk) {
+        margin: 0 2.7vw 3.5vh;
+    }
+    @include max-screen($tab) {
+        width: 22vw;
+        margin: 0 2.5vw 2.5vh;
+    }
+    a{
+        display: block;
+        width: 100%;
+        transition: all 0.3s ease-out;
+        backface-visibility: hidden;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.collection-gallery-overlay{
+    visibility: hidden;
+    display: table;
+    background: $white;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 99;
+    .collection-gallery-overlay__item{
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        .collection-gallery-overlay__item--inner{
+            margin: 0 auto;
+            &.img-landscape{
+                width: 60vw;
+                height: auto;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+                @include max-screen($tab) {
+                    width: 80vw;
+                }
+            }
+            &.img-portrait{
+                width: auto;
+                height: 70vh;
+                img{
+                    width: auto;
+                    height: 100%;
+                }
+                @include max-screen($tab) {
+                    width: 80vw;
+                    height: auto;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        img{
+            opacity: 0;
+        }
+    }
+    .btn-close{
+        position: absolute;
+        top:19px;
+        right:19px;
+        width: 28px;
+        height: 28px;
+        border: none;
+        z-index: 1;
+        margin: 0;
+        padding:0;
+        // img{
+        //  width: 16px;
+        //  height: 16px;
+        // }
+        &:before,
+        &:after{
+            content:"";
+            position: relative;
+            display:block; 
+            height: 1px;
+            width: 27px;
+            background: $black;
+            top: 0;
+        }
+        &:before{
+            left: 0px;
+            transform: rotate(45deg);
+        }
+        &:after{
+            top: -1px;
+            left: 0px;
+            transform: rotate(-45deg);
+        }
+    }
+    .collection-gallery__nav{
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left: 0;
+        button{
+            position: absolute;
+            background: $white;
+            border: none;
+            width: 30px;
+            height: 20px;
+            margin: -10px 0 0;
+            top:50%;
+            transition: all 0.5s ease-out;
+            &.btn-pre{
+                left: -20px;
+                background: url('../img/arrow.svg') no-repeat 0 0;
+                transform: rotate(180deg);
+            }
+            &.btn-next{
+                right: -20px;
+                background: url('../img/arrow.svg') no-repeat 0 0;
+            }
+            @include max-screen($tab) {
+                width: 22px;
+                height: 15px;
+            }
+        }
+    }
+    &.showModal{
+        button{
+            &.btn-pre{
+                left: 10px;
+            }
+            &.btn-next{
+                right:10px;
+            }
+        }
+    }
+}
