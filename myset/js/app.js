@@ -2,6 +2,7 @@
 // import 'custom-event-polyfill'
 
 import webGL from './modules/webGL';
+import Gallery from './modules/gallery';
 // import Home from './modules/home';
 // import Model from './modules/model';
 // import Cover from './modules/cover';
@@ -10,14 +11,13 @@ import webGL from './modules/webGL';
 class App {
 
 	constructor (){
-		console.log('%cBuilt by', 'font: 200 16px Calibri;color:#CCC');
 	
-		// this.body = document.querySelector('body');
+		this.body = document.querySelector('body');
 		// this.coverSlider = document.querySelector('.cover__slider');
 
 		// this.header = new Header();
 
-		// this.routes();
+		this.routes();
 		this.init();
 	}
 
@@ -30,8 +30,12 @@ class App {
 		}
 
 		// Model Page
-		if ( this.body.classList.contains('page-template-page-model') ) {
-			this.model = new Model();
+		// if ( this.body.classList.contains('page-template-page-model') ) {
+		// 	this.model = new Model();
+		// }
+		// Model Page
+		if ( this.body.classList.contains('gallery_page') ) {
+			new Gallery();
 		}
 
 	}
@@ -40,8 +44,11 @@ class App {
 		if (this.coverSlider) {
 			new Cover(this.coverSlider);
 		} 
-
-		new webGL();
+		
+		if ( this.body.classList.contains('webGL') ) {
+			new webGL();
+		}
+		
 
 	}
 }

@@ -1,3 +1,12 @@
+button,input,textarea {
+    background: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
 
 /* Collection
    ========================================================================== */
@@ -10,33 +19,37 @@ html.modal-active{
     padding: 0 0 5vh;
     overflow: hidden;
     display: flex;
-    flex-flow: row wrap; 
+    flex-flow: row wrap;
+
     @include max-screen($width-max) {
         width: 100%;
     }
-    @include max-screen($tab) {
+    @include max-screen($breakpoint-tablet) {
         width: 81vw;
         padding: 0 0 3vh;
     }
 }
 .collection-gallery__item{
     position: relative;
-    width:  180px;
+    // width:  180px;
+    height: 200px;
     margin: 0 50px 80px;
+    overflow:hidden;
     @include max-screen($width-max) {
         width:  14vw;
         margin: 0 2.7vw 6vh;
     }
-    @include max-screen($desk) {
+    @include max-screen($breakpoint-md) {
         margin: 0 2.7vw 3.5vh;
     }
-    @include max-screen($tab) {
+    @include max-screen($breakpoint-tablet) {
         width: 22vw;
         margin: 0 2.5vw 2.5vh;
     }
     a{
         display: block;
         width: 100%;
+        height:100%;
         transition: all 0.3s ease-out;
         backface-visibility: hidden;
         &:hover{
@@ -44,8 +57,12 @@ html.modal-active{
         }
     }
     img{
-        width: 100%;
-        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
     }
 }
 
@@ -76,7 +93,7 @@ html.modal-active{
                     width: 100%;
                     height: auto;
                 }
-                @include max-screen($tab) {
+                @include max-screen($breakpoint-tablet) {
                     width: 80vw;
                 }
             }
@@ -87,7 +104,7 @@ html.modal-active{
                     width: auto;
                     height: 100%;
                 }
-                @include max-screen($tab) {
+                @include max-screen($breakpoint-tablet) {
                     width: 80vw;
                     height: auto;
                     img{
@@ -153,14 +170,14 @@ html.modal-active{
             transition: all 0.5s ease-out;
             &.btn-pre{
                 left: -20px;
-                background: url('../img/arrow.svg') no-repeat 0 0;
+                background: url('../images/arrow.svg') no-repeat 0 0;
                 transform: rotate(180deg);
             }
             &.btn-next{
                 right: -20px;
-                background: url('../img/arrow.svg') no-repeat 0 0;
+                background: url('../images/arrow.svg') no-repeat 0 0;
             }
-            @include max-screen($tab) {
+            @include max-screen($breakpoint-tablet) {
                 width: 22px;
                 height: 15px;
             }
