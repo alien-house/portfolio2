@@ -3,6 +3,7 @@
 
 import webGL from './modules/webGL';
 import Gallery from './modules/gallery';
+import SmoothScroll from './modules/smoothscroll';
 // import Home from './modules/home';
 // import Model from './modules/model';
 // import Cover from './modules/cover';
@@ -13,6 +14,7 @@ class App {
 	constructor (){
 	
 		this.body = document.querySelector('body');
+    	this.parallaxers = [document.querySelectorAll('[data-parallax="true"]')];
 		// this.coverSlider = document.querySelector('.cover__slider');
 
 		// this.header = new Header();
@@ -37,6 +39,10 @@ class App {
 		if ( this.body.classList.contains('gallery_page') ) {
 			new Gallery();
 		}
+		if ( this.body.classList.contains('page-smoothscroll') ) {
+			new SmoothScroll();
+
+		}
 
 	}
 
@@ -48,7 +54,12 @@ class App {
 		if ( this.body.classList.contains('webGL') ) {
 			new webGL();
 		}
-		
+			
+	    if(this.parallaxers && window.matchMedia('(min-width: 600px)').matches && !isHandheld()){
+	      this.parallaxers.forEach((parallax) => {
+	        new Parallax(parallax)
+	      })
+	    }
 
 	}
 }

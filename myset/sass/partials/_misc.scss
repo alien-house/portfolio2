@@ -48,3 +48,18 @@
         opacity: 0;
     }
 }
+
+@keyframes slide-down-rotated{
+    0%{
+        -webkit-transform:translateX(-20px) translateY(-100%) rotate(-7deg);
+        transform:translateX(-20px) translateY(-100%) rotate(-7deg);
+        -webkit-transform-origin:left top;
+        transform-origin:left top
+    }
+    to{
+        -webkit-transform:translateY(0);
+        transform:translateY(0);
+        -webkit-transform-origin:left top;
+        transform-origin:left top
+    }
+}
