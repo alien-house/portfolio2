@@ -5056,9 +5056,6 @@ table {
   .box__group:nth-child(2) {
     background: #333; }
 
-html, body {
-  overflow: hidden; }
-
 .page-smoothscroll h1 {
   font-size: 10rem;
   margin: 0 0 50px; }
@@ -5074,6 +5071,56 @@ html, body {
   top: 0;
   right: 0;
   transform: translate3d(0, 0, 0); }
+
+.page-scrollreveal .scrollreveal-container {
+  padding: 50px; }
+  .page-scrollreveal .scrollreveal-container p {
+    margin-bottom: 100px; }
+
+.page-scrollreveal .image-container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 400px; }
+  .page-scrollreveal .image-container .image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    transform: translate3d(-20px, 0, 0);
+    transition: opacity 0s linear 0.6s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s; }
+    .page-scrollreveal .image-container .image.widescreen {
+      width: auto;
+      height: auto; }
+  .page-scrollreveal .image-container .mask-anim {
+    margin-right: -10px;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 100%;
+    left: 0;
+    background: #010101;
+    z-index: 3;
+    transition: bottom 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, right 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.3s, margin 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.6s, left 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.8s; }
+  .page-scrollreveal .image-container.is-visible .image {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    transform: translate3d(0, 0, 0); }
+  .page-scrollreveal .image-container.is-visible .mask-anim {
+    margin-right: 0;
+    right: -1px;
+    bottom: 0;
+    left: 100%; }
+
+.page-scrollreveal img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic; }
 
 .base {
   padding: 10px; }

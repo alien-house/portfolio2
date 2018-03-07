@@ -24,6 +24,7 @@
     "particles.js": "^2.0.0",
     "reset-css": "^2.2.1",
     "scrollmagic": "^2.0.5",
+    "scrollreveal": "^3.3.6",
     "slick-carousel": "^1.8.1",
     "snapsvg": "^0.5.1",
     "textillate": "^0.4.1",

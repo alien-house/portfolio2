@@ -2,6 +2,7 @@
 // import 'custom-event-polyfill'
 
 import webGL from './modules/webGL';
+import ScrollReveal from 'scrollreveal';
 import Gallery from './modules/gallery';
 import SmoothScroll from './modules/smoothscroll';
 // import Home from './modules/home';
@@ -43,6 +44,17 @@ class App {
 			new SmoothScroll();
 
 		}
+		if (this.body.classList.contains('page-scrollreveal') ) {
+			// new ScrollReveal();
+			window.sr = ScrollReveal();
+			sr.reveal('.scroll-reveal', { afterReveal: function (domEl) { 
+				console.log('de'); 
+				console.log(domEl); 
+				var test = domEl.querySelector('.image-container');
+				test.classList.add('is-visible');
+			} });
+
+		}
 
 	}
 
@@ -55,11 +67,11 @@ class App {
 			new webGL();
 		}
 			
-	    if(this.parallaxers && window.matchMedia('(min-width: 600px)').matches && !isHandheld()){
-	      this.parallaxers.forEach((parallax) => {
-	        new Parallax(parallax)
-	      })
-	    }
+	    // if(this.parallaxers && window.matchMedia('(min-width: 600px)').matches && !isHandheld()){
+	    //   this.parallaxers.forEach((parallax) => {
+	    //     new Parallax(parallax)
+	    //   })
+	    // }
 
 	}
 }
