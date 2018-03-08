@@ -16,6 +16,7 @@ class App {
 	
 		this.body = document.querySelector('body');
     	this.parallaxers = [document.querySelectorAll('[data-parallax="true"]')];
+    	this.scrollReveal = [document.querySelectorAll('.scroll-reveal')];
 		// this.coverSlider = document.querySelector('.cover__slider');
 
 		// this.header = new Header();
@@ -44,8 +45,7 @@ class App {
 			new SmoothScroll();
 
 		}
-		if (this.body.classList.contains('page-scrollreveal') ) {
-			// new ScrollReveal();
+		if( this.scrollReveal ){
 			window.sr = ScrollReveal();
 			sr.reveal('.scroll-reveal', { afterReveal: function (domEl) { 
 				console.log('de'); 
@@ -53,6 +53,10 @@ class App {
 				var test = domEl.querySelector('.image-container');
 				test.classList.add('is-visible');
 			} });
+		}
+
+		if (this.body.classList.contains('page-scrollreveal') ) {
+			// new ScrollReveal();
 
 		}
 

@@ -18971,6 +18971,7 @@ var App = function () {
 
 		this.body = document.querySelector('body');
 		this.parallaxers = [document.querySelectorAll('[data-parallax="true"]')];
+		this.scrollReveal = [document.querySelectorAll('.scroll-reveal')];
 		// this.coverSlider = document.querySelector('.cover__slider');
 
 		// this.header = new Header();
@@ -19002,8 +19003,7 @@ var App = function () {
 			if (this.body.classList.contains('page-smoothscroll')) {
 				new __WEBPACK_IMPORTED_MODULE_3__modules_smoothscroll__["a" /* default */]();
 			}
-			if (this.body.classList.contains('page-scrollreveal')) {
-				// new ScrollReveal();
+			if (this.scrollReveal) {
 				window.sr = __WEBPACK_IMPORTED_MODULE_1_scrollreveal___default()();
 				sr.reveal('.scroll-reveal', { afterReveal: function afterReveal(domEl) {
 						console.log('de');
@@ -19011,6 +19011,11 @@ var App = function () {
 						var test = domEl.querySelector('.image-container');
 						test.classList.add('is-visible');
 					} });
+			}
+
+			if (this.body.classList.contains('page-scrollreveal')) {
+				// new ScrollReveal();
+
 			}
 		}
 	}, {
